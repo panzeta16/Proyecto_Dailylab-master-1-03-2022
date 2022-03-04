@@ -67,6 +67,7 @@ function verPerfil()//
     
     require "Views/paciente/header.php";
     require "Views/paciente/verPerfil.php";
+    
     // require "Views/footer.php";
 }
 
@@ -247,7 +248,8 @@ function validate()
         }
 
     }else{ 
-        header('location: index.php?error');
+        require "Views/alertas/nousuario.php";
+        require "Views/usuario/login.php";
         ?> 
 <script type="text/javascript">
   jsFunction();

@@ -8,6 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- esto va en cada tabla-->
 <link rel="stylesheet" href="Views/css/tablas.css">
+
+<link rel="stylesheet" href="Views/css/perfil.css">
 <link href="https://unpkg.com/vanilla-datatables@latest/dist/vanilla-dataTables.min.css" rel="stylesheet" type="text/css">
 <script src="https://unpkg.com/vanilla-datatables@latest/dist/vanilla-dataTables.min.js" type="text/javascript"></script>
 <!-- esto va en cada tabla-->
@@ -17,16 +19,61 @@
     </head>
     <body>
 
+    
+
+    <section class="seccion-perfil-usuario">
+        <div class="perfil-usuario-header">
+            <div class="perfil-usuario-portada">
+                <div class="perfil-usuario-avatar">
+
+                <i class="icono fas fa-user-check"></i>
+                
+                </div>
+
+            </div>
+        </div>
+        <div class="perfil-usuario-body">
+            <div class="perfil-usuario-bio">
+  
+
+
+            </div>
+            <div class="perfil-usuario-footer">
+               
+                <ul class="lista-datos">
+                    <li><i class="icono fas fa-user-check"></i> Nombre :</li>
+                    <li><i class="icono fas fa-user-check"></i> Apellido:</li>
+                    <li><i class="icono fas fa-envelope"></i> Correo:</li>
+                    <li><i class="icono fas fa-phone-alt"></i> Telefono:</li>
+                </ul>
+                <ul class="lista-datos">
+                    <li><i class=""></i> <?=$_SESSION['user']->getNombres_Usuario();?> </li>
+                    <li><i class=""></i><?=$_SESSION['user']->getApellidos_Usuario();?></li>
+                    <li><i class=""></i> <?=$_SESSION['user']->getCorreo_Electronico();?></li>
+                    <li><i class=""></i> <?=$_SESSION['user']->getTelefono_Usuario();?></li>
+                </ul>
+
+            
+               
+                <ul class="lista-datos">
+                    <li><i class="icono fas fa-address-card"></i> Documento:</li>
+                    <li><i class="icono fas fa-user-check""></i> nada:</li>
+                    <li><i class="icono fas fa-briefcase"></i> nada:</li>
+                    <li><i class="icono fas fa-phone-alt"></i> nada:</li>
+                </ul>
+                <ul class="lista-datos">
+                    <li><i class=""></i> <?=$_SESSION['user']->getDocumento_Identificacion();?> </li>
+                    <li><i class=""></i><?=$_SESSION['user']->getApellidos_Usuario();?></li>
+                    <li><i class=""></i> <?=$_SESSION['user']->getCorreo_Electronico();?></li>
+                    <li><i class=""></i> <?=$_SESSION['user']->getTelefono_Usuario();?></li>
+                </ul>
+              
+            </div>
+
+        </div>
+    </section>
 <h1>Mis citas </h1>
 
-<div class= "container-fluid">
-<br>
-
-<ol class= "breadcrumb">
-    <li class="active">Inicio >> </li>  
-    <li><a href="#">Menu </a></li> 
-</ol>   
-</div>
 
 
 <br>

@@ -41,7 +41,7 @@
                     <div class="form-group">
 
                     </div>
-<form action= "?c=citas&a=agendarPac&Id_Usuario=<?= $usuario->getId_Usuario() ?>" method ="post">
+<form action= "?c=citas&a=agendarPac&Id_Usuario=<?= $usuario->getId_Usuario() ?>" method ="post" id="agendar">
 
 <input type="hidden" name="Id_Usuario" value="<?=$usuario->getId_Usuario() ?>">
 
@@ -132,6 +132,8 @@
 </div>
 </div>
 </section>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                      
 </body>
 </html>
 

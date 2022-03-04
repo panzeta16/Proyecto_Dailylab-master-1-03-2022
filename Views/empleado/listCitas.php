@@ -8,11 +8,62 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <!-- esto va en cada tabla-->
 <link rel="stylesheet" href="Views/css/tablas.css">
+<link rel="stylesheet" href="Views/css/perfil.css">
 <link href="https://unpkg.com/vanilla-datatables@latest/dist/vanilla-dataTables.min.css" rel="stylesheet" type="text/css">
 <script src="https://unpkg.com/vanilla-datatables@latest/dist/vanilla-dataTables.min.js" type="text/javascript"></script>
 <!-- esto va en cada tabla-->
-        <h2>Citas</h2>
+     
 
+
+        <section class="seccion-perfil-usuario">
+        <div class="perfil-usuario-header">
+            <div class="perfil-usuario-portada">
+                <div class="perfil-usuario-avatar">
+
+                <i class="icono fas fa-user-check"></i>
+                
+                </div>
+
+            </div>
+        </div>
+        <div class="perfil-usuario-body">
+
+            <div class="perfil-usuario-footer">
+               
+                <ul class="lista-datos">
+                    <li><i class="icono fas fa-user-check"></i> Nombre :</li>
+                    <li><i class="icono fas fa-user-check"></i> Apellido:</li>
+                    <li><i class="icono fas fa-envelope"></i> Correo:</li>
+                    <li><i class="icono fas fa-phone-alt"></i> Telefono:</li>
+                </ul>
+                <ul class="lista-datos">
+                    <li><i class=""></i> <?=$_SESSION['user']->getNombres_Usuario();?> </li>
+                    <li><i class=""></i><?=$_SESSION['user']->getApellidos_Usuario();?></li>
+                    <li><i class=""></i> <?=$_SESSION['user']->getCorreo_Electronico();?></li>
+                    <li><i class=""></i> <?=$_SESSION['user']->getTelefono_Usuario();?></li>
+                </ul>
+
+            
+               
+                <ul class="lista-datos">
+                    <li><i class="icono fas fa-address-card"></i> Documento:</li>
+                    <li><i class="icono fas fa-user-check""></i> nada:</li>
+                    <li><i class="icono fas fa-briefcase"></i> nada:</li>
+                    <li><i class="icono fas fa-phone-alt"></i> nada:</li>
+                </ul>
+                <ul class="lista-datos">
+                    <li><i class=""></i> <?=$_SESSION['user']->getDocumento_Identificacion();?> </li>
+                    <li><i class=""></i><?=$_SESSION['user']->getApellidos_Usuario();?></li>
+                    <li><i class=""></i> <?=$_SESSION['user']->getCorreo_Electronico();?></li>
+                    <li><i class=""></i> <?=$_SESSION['user']->getTelefono_Usuario();?></li>
+                </ul>
+              
+            </div>
+
+        </div>
+    </section>
+
+    <h2>Citas</h2>
 
 <div class= "container-fluid">
     <nav aria-label="breadcrumb">
@@ -28,7 +79,7 @@
 
 <div class="contact-box">  
 <br>
-<table class="table table-hover table-striped" id="tabla" class="display"> 
+<table class="table table-hover table-striped" id="cancelar" class="display"> 
     <thead class="table">
         <tr>
         <td>Fecha 
@@ -58,7 +109,7 @@
         <td> <?= $usuario->getById($cita->getId_Usuario())->getApellidos_Usuario() ?></td>
         <td> <?= $usuario->getById($cita->getId_Usuario())->getDocumento_Identificacion() ?></td>
         <td> <?= $sucursal->getById($cita->getId_Sucursal())->getNombre_Sucursal() ?></td>
-        <td> <a href="?c=citas&a=changeState2&Id_Cita=<?= $cita->getId_Cita() ?>&Fecha_Cita=<?= $cita->getFecha_Cita() ?>" class= "btn btn-danger">Cancelar</a> </td>        
+        <td> <a  href="?c=citas&a=changeState2&Id_Cita=<?= $cita->getId_Cita() ?>&Fecha_Cita=<?= $cita->getFecha_Cita() ?>"   type="submit" class= "btn btn-danger">Cancelar</a > </td>        
 
         
     </td>
@@ -70,6 +121,7 @@
 
 
     </div>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src='Views/js/dataTable.js'></script>
     </body>
     </html>

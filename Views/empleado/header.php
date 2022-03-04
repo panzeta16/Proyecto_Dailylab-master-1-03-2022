@@ -107,20 +107,10 @@
                     <span class="item">Inicio</span>
                 </a>
             </li>
-            <li id="perfil">
-                <a href="#" >
-                    <span class="icon-lg"><i class='bx bx-user' ></i></span>
-                    <span class="item">Perfil</span>
-                </a>
-            </li>
+
 
             
-            <li id="usuarios">
-            <a href="Views/usuario/registrsobre.php" >
-                    <span class="icon-lg"><i class='bx bx-band-aid'></i></span>
-                    <span  class="item">Registrar</span>
-                </a>
-            </li>
+
 
            <li id="citas">
             <a href="?c=usuario&a=index" >

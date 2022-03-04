@@ -47,8 +47,87 @@ function enviarFormulario() {
               
         }
            
-       else {
-           console.log('Enviando formulario...');
-       }
+  
+
+
+       
+ const formulario = document.querySelector('#agendar');
+ formulario.addEventListener('submit', function(e) {
+     e.preventDefault();
+   
+ })
+
+
+ const swalWithBootstrapButtons = Swal.mixin({
+  customClass: {
+    confirmButton: 'btn btn-success',
+    cancelButton: 'btn btn-danger',
+    cancelButtontext: 'cancelar',
+    confirmButtonText: 'Agendar',
+
+  },
+  buttonsStyling: false
+})
+
+swalWithBootstrapButtons.fire({
+  title: 'AGENDAR ',
+  text: "Quieres agendar esta cita ?",
+  icon: 'question',
+  showCancelButton: true,
+  confirmButtonText: 'Agendar',
+  cancelButtonText: 'Cancelar!',
+  reverseButtons: true
+}).then((result) => {
+  if (result.isConfirmed) {
+
+    
+
+ formulario.submit();
+
+  } else if (
+    /* Read more about handling dismissals below */
+    result.dismiss === Swal.DismissReason.cancel
+  ) {
+    swalWithBootstrapButtons.fire(
+      'Cancelada',
+      'Tu cita fue cancelada :)',
+      'error'
+    )
+  }
+})
+
+
+// var nombre = $('#fecha').val();
+// var hora = $( '#hora ').val(); 
+// var sucursal = $( '#sucursal ').val(); 
+// var examenes= $( '#examenes').val(); 
+// var idcita = $( '#idcita ').val(); 
+// var idusuario = $( '#idusuario ').val(); 
+// $.post('?c=citas&a=Agendar')
+
+ 
+
+  
+
+
+
+
+  
+    
+  
+  
+      
+
+
+
+
+  
+
+  
+
+
+
+
+}
            
-       }
+       

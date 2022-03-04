@@ -129,12 +129,7 @@ gg
                     <span class="item:active">Inicio</span>
                 </a>
             </li>
-            <li id="perfil">
-            <a href="?c=usuario&a=verPerfil" >
-                    <span class="icon"><i class='bx bx-user' ></i></span>
-                    <span class="item:active">Ver perfil</span>
-                </a>
-            </li>
+
             
        <!--     <li id="agendar">
                    <a href="?c=citas&a=viewAgendar" >Agendar citas 

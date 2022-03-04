@@ -2,19 +2,21 @@ var fecha = document.getElementById('fecha');
 var hora = document.getElementById('hora');
 var sucursal =document.getElementById('sucursal');
 var examenes =document.getElementById('examenes');
+var idcita =document.getElementById('idcita');
+var idusuario =document.getElementById('idusuario');
+
 
 var error =document.getElementById('error');
 error.style.color ='red';
 
-       
+
 
 
 
 function enviarFormulario() {
 
+ 
 
-
-       
     var mensajesError = [];
 
   
@@ -32,163 +34,122 @@ function enviarFormulario() {
         return false;  
           
     }
+
     if (sucursal.value === null  || sucursal.value === '' ){
      mensajesError.push('elige sucursal')
      error.innerHTML= mensajesError.join(' ')
      return false;  
        
  }
+
  if (examenes.value === null  || examenes.value === '' ){
      mensajesError.push('elige tu examen')
      error.innerHTML= mensajesError.join(' ')
      return false;  
        
  }
+
+
+ 
+ const formulario = document.querySelector('#formulario');
+ formulario.addEventListener('submit', function(e) {
+     e.preventDefault();
+   
+ })
+
+
+ const swalWithBootstrapButtons = Swal.mixin({
+  customClass: {
+    confirmButton: 'btn btn-success',
+    cancelButton: 'btn btn-danger',
+    cancelButtontext: 'cancelar',
+    confirmButtonText: 'Agendar',
+
+  },
+  buttonsStyling: false
+})
+
+swalWithBootstrapButtons.fire({
+  title: 'AGENDAR ',
+  text: "Quieres agendar esta cita ?",
+  icon: 'question',
+  showCancelButton: true,
+  confirmButtonText: 'Agendar',
+  cancelButtonText: 'Cancelar!',
+  reverseButtons: true
+}).then((result) => {
+  if (result.isConfirmed) {
+
     
-else {
 
-    $('#agendar').subnit(function(e){
+ formulario.submit();
 
-        e.preventDefault();
-    });
-    
-
-}
-    
-}
-
-
-
-
-
-
-
-
-//ejemplo básico
-
-
-//con opción de TYPE  //tipos de popups: error, success, warning, info, question
-$("#btn2").click(function(){
-  /*Swal.fire({
-      //error
-      type: 'error',
-      title: 'Error',
-      text: '¡Algo salió mal!',        
-  });*/
-  Swal.fire({        
-      type: 'success',
-      title: 'Éxito',
-      text: '¡Perfecto!',        
-  });
-});	
-
-//Con imagen de fondo
-$("#btn3").click(function(){
-  Swal.fire({
-      imageUrl: 'img/html5.png',
-      imageHeight: 412,
-      imageAlt: 'A tall image'
-  });
-});	
-
-//Con posicionamiento - por defecto es centrada
-//Posibles valores: 'top', 'top-start', 'top-end', 'center', 'center-start', 'center-end', 'bottom', 'bottom-start', or 'bottom-end'.
-
-$("#btn4").click(function(){
-  Swal.fire({
-    position: 'top-start', //permite "top-end"
-    type: 'success',
-    title: 'Tú trabajo ha sido grabado',
-    showConfirmButton: false,
-    timer: 2000 //el tiempo que dura el mensaje en ms
-  });    
-});
-
-//Animada tiene que ir en la propiedad popup
-// popup: 'animated nombreDelEfecto'
-$("#btn5").click(function(){
-  Swal.fire({
-      title: 'Custom animation with Animate.css',
-      animation: false,
-      customClass: {
-      popup: 'animated bounceIn'
+  } else if (
+    /* Read more about handling dismissals below */
+    result.dismiss === Swal.DismissReason.cancel
+  ) {
+    swalWithBootstrapButtons.fire(
+      'Cancelada',
+      'Tu cita fue cancelada :)',
+      'error'
+    )
   }
-  });
-});	
+})
 
-//cambiando el background
-$("#btn6").click(function(){
-  Swal.fire({
-      title: 'Personalizando ancho, padding y background.',
-      width: 600,
-      padding: '5em',
-      background: '#fff url(/img/imagen_600x500.png)', //es el fondo de la caja de dialogo
-      backdrop: `
-      rgba(5, 5, 25, 0.4)
-      url("https://sweetalert2.github.io/images/nyan-cat.gif")
-      center left
-      no-repeat
-      `
-  });
-});
 
-//Progresivo
-$("#btn7").click(function(){
-  Swal.mixin({
-    input: 'text', //puede ser text, number, email, password, textarea, select, radio
-    confirmButtonText: 'Siguiente &rarr;',
-    showCancelButton: true,
-    progressSteps: ['1', '2', '3']
-  }).queue([
-    {
-      title: 'Pregunta 1',
-      text: '¿Color favorito?'
-    },
-    {
-      title: 'Pregunta 2',
-      text: '¿Animal favorito?'
-    },
-      {
-      title: 'Pregunta 3',
-      text: '¿País de origen?'
-    }      
-  ]).then((result) => {
-    if (result.value) {
-      Swal.fire({
-        title: '¡Completado!',
-        html:
-          'Tus respuestas: <pre><code>' +
-            JSON.stringify(result.value) +
-          '</code></pre>',
-        confirmButtonText: 'Ok'
-      })
-    }
-  });    
-});
+// var nombre = $('#fecha').val();
+// var hora = $( '#hora ').val(); 
+// var sucursal = $( '#sucursal ').val(); 
+// var examenes= $( '#examenes').val(); 
+// var idcita = $( '#idcita ').val(); 
+// var idusuario = $( '#idusuario ').val(); 
+// $.post('?c=citas&a=Agendar')
 
-//con TIMER
-let timerInterval
-$("#btn8").click(function(){
-  Swal.fire({
-    title: 'Auto close alert!',
-    html: 'I will close in <strong></strong> seconds.',
-    timer: 2000, //tiempo del timer
-    onBeforeOpen: () => {
-      Swal.showLoading()
-      timerInterval = setInterval(() => {
-        Swal.getContent().querySelector('strong')
-          .textContent = Swal.getTimerLeft()
-      }, 100)
-    },
-    onClose: () => {
-      clearInterval(timerInterval)
-    }
-  }).then((result) => {
-    if (
-      // Read more about handling dismissals
-      result.dismiss === Swal.DismissReason.timer
-    ) {
-      console.log('I was closed by the timer')
-    }
-  });    
-});
+ 
+
+  
+
+
+
+
+  
+    
+  
+  
+      
+
+
+
+
+  
+
+  
+
+
+
+
+}
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+

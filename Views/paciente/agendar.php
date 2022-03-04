@@ -30,12 +30,12 @@
                     <div class="form-group">
 
                     </div>
-<form  id="agendar" action= "?c=citas&a=Agendar" method ="post" >
+<form  id="formulario" action= "?c=citas&a=Agendar" method ="post" >
 <!--<form action= "?c=citas&a=saveAgendar" method ="post">
 -->
-<input type="hidden" name="Id_Cita" require value="<?=$cita->getId_Cita() ?>">
+<input type="hidden" id="idcita" name="Id_Cita" require value="<?=$cita->getId_Cita() ?>">
 
-<input type="hidden" name="Id_Usuario"  require value="<?=$_SESSION['user']->getId_Usuario() ?>">
+<input type="hidden" id="idusuario" name="Id_Usuario"  require value="<?=$_SESSION['user']->getId_Usuario() ?>">
 
 <div class="form-row mb-2" >
 <div class="form-group col-md-6" >
@@ -87,14 +87,19 @@
 </div>
 </div>
 <div>
-<button  class="btn btn-primary width-100"  onclick='return enviarFormulario();' id="bt1" value="enviar" class="btn solid" >enviar</button>
+<button  class="btn btn-primary width-100"  onclick='return enviarFormulario();' id="bt1"  class="btn solid" >enviar</button>
                       
                        <div  class="error" id="error"></div>
 
+
+
                        </div>
 </form>
+</td>
+<td> 
 
-<button  class="btn btn-primary width-100"  onclick='return enviarFormulario();' id="bt1" class="btn solid" >enviar</button>
+
+</td>
 </div>
 </div>
 </div>
